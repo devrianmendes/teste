@@ -13,6 +13,7 @@ dotenv.config();
 // console.log(__dirname + '/../tmp')
 server.use('/images', express.static(__dirname + '/../tmp'));
 
+// const vport = process.env.PORT || 3001;
 const port = 3333;
 
 server.listen(port, () => {
