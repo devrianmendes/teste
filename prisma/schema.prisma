@@ -4,7 +4,7 @@
 datasource db {
   provider = "mysql"
   // url      = env("DATABASE_URL")
-  url = "mysql://mm3gh5mefr2v44aijrh5:pscale_pw_MWjOdk4U6w7rRGas9Vnq6xMuTcBsAQK2jCrlIDZWCPS@aws.connect.psdb.cloud/artlamour?sslaccept=strict"
+  url = "mysql://ja0j5ypeg9jkohbnzczl:pscale_pw_MWjOdk4U6w7rRGas9Vnq6xMuTcBsAQK2jCrlIDZWCPS@aws.connect.psdb.cloud/artlamour?sslaccept=strict"
   relationMode = "prisma" //planetscale config
 }
 
