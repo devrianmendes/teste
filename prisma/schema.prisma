@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma" //planetscale config
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User{
+  id String @id @default(uuid())
+  nome String
+  apelido String
+  email String
+  senha String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  @@map("usuarios")
+}
+
+model Material{
+  id String @id @default(uuid())
+  nome String
+  desc String
+  quantidadeCusto String
+  unidadeMedidaCusto String
+  custo Decimal
+  user String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  pecas PecaMateriais[]
+  @@map("materiais")
+}
+
+model Peca{
+  id String @id @default(uuid())
+  nome String
+  desc String
+  hrProd Int
+  minProd Int
+  lucroDesejado Int
+  banner String?
+  user String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  materiais PecaMateriais[]
+  @@map("pecas")
+}
+
+model PecaMateriais {
+  id String @id @default(uuid())
+  qtdMatUsado String
+  unMedidaUsado String
+
+  peca Peca @relation(fields: [peca_id], references: [id])
+  peca_id String
+
+  material Material @relation(fields: [material_id], references: [id])
+  material_id String
+}

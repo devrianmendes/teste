@@ -1,0 +1,4 @@
+/node_modules
+.env
+artelamour.pem
+ssh.txt
